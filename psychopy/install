@@ -1,23 +1,9 @@
 #!/usr/bin/env bash
 # Create a new python environment on a Mac to run psychopy experiments
 # Requirements:
-# - homebrew
 # - anaconda (brew cask install anaconda)
 
-# Create a python 2.7 environment, activate it, and install psychopy
+# Create a lab environment
 source ~/anaconda3/bin/activate
-conda create -n lab python=2.7
+conda create -f environment.yml
 source activate lab
-conda install -c https://conda.anaconda.org/erik psychopy
-
-# Install pyo the hard way
-# source deactivate
-# brew install liblo libsndfile portaudio portmidi --universal
-# source ~/anaconda3/bin/activate
-# source activate lab
-# pip install git+git://github.com/belangeo/pyo.git \
-#     --install-option='--use-coreaudio' \
-#     --install-option='--use-double'
-
-# Install pygame instead
-conda install -c https://conda.anaconda.org/CogSci pygame
