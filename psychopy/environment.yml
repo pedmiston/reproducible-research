@@ -22,7 +22,6 @@ dependencies:
 - erik::modulegraph=0.11.1=py27_0
 - erik::psychopy=1.80.01dev=np18py27_1
 - erik::py2app=0.8=py27_0
-- erik::pyglet1.2=1.2alpha1=py27_1
 - erik::pyobjc-core=2.5.1=py27_0
 - erik::pyobjc-framework-cocoa=2.5.1=py27_0
 - erik::pyobjc-framework-qtkit=2.5.1=py27_0
@@ -39,6 +38,7 @@ dependencies:
 - imagesize=0.7.1=py27_0
 - ipython=5.1.0=py27_0
 - ipython_genutils=0.1.0=py27_0
+- jcarlin::pyglet=1.2.4=py27_0
 - jdcal=1.3=py27_0
 - jinja2=2.8=py27_1
 - jpeg=8d=2
@@ -94,7 +94,6 @@ dependencies:
   - et-xmlfile==1.0.1
   - ipython-genutils==0.1.0
   - prompt-toolkit==1.0.3
-  - pyglet==1.2a1
   - python-dateutil==2.4.1
   - tables==3.1.1
   - wxpython-common==3.0.0.0
