@@ -5,5 +5,9 @@
 
 # Create a lab environment
 source ~/anaconda3/bin/activate
-conda create -f environment.yml
+conda env create environment.yml
 source activate lab
+
+# erik/psychopy installs a version of pyglet that doesn't work
+# so install one that does:
+conda install --force -c jcarlin pyglet
