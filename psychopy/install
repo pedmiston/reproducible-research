@@ -1,13 +1,25 @@
 #!/usr/bin/env bash
-# Create a new python environment on a Mac to run psychopy experiments
+# Create a new python environment to run psychopy experiments.
 # Requirements:
-# - anaconda (brew cask install anaconda)
+# - anaconda
+
+VENV_NAME=lab
 
 # Create a lab environment
 source ~/anaconda3/bin/activate
-conda env create environment.yml
-source activate lab
+conda env create -n $VENV_NAME
+source activate $VENV_NAME
+conda install -c erik psychopy
 
 # erik/psychopy installs a version of pyglet that doesn't work
 # so install one that does:
-conda install --force -c jcarlin pyglet
+conda install -c jcarlin --force pyglet
+
+# erik/psychopy doesn't install pyo:
+# pip install git+git://github.com/belangeo/pyo
+# If only it were that easy!
+# 1. Download a binary here: http://ajaxsoundstudio.com/software/pyo/
+# 2. Unpack it. By default it unpacks in a Framework python build. This is
+#    almost undoubtedly not what you want. I move the files by hand to
+#    the site-packages folder of my virtualenv. As long as it puts the
+#    dylib's in the right place, this seems to work ok.
