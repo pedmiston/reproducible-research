@@ -17,3 +17,15 @@ For real world examples, I'll be referring to a few of my research projects.
 
 - [property-verification](https://github.com/lupyanlab/property-verification/). A reproducible cognitive psychology experiment.
 - [wikischolar](https://github.com/evoapps/wikischolar/). A data science project investigating the evolution of Wikipedia articles.
+
+## Using this repo
+
+To build the presentation, clone it, and use pandoc to convert "presentation.md" to "presentation.html". To make things easier, I include the reveal.js
+repo as a submodule. Actually, it's my personal fork of the reveal.js repo, the only difference between it and it's upstream branch is that my version ignores the "index.html" file so that when I build **this** presentation, I can just output the pandoc results as "index.html" in the revealjs submodule, and I don't have to worry about any modifications clogging up my git status.
+
+    git clone https://github.com/pedmiston/reproducible-research
+    cd reproducible-research
+    git submodule init
+    git submodule update
+    ./build
+    open presentation.html
