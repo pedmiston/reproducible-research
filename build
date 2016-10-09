@@ -11,3 +11,5 @@ if [ ! -e presentation.html ];
 then
     ln $revealjs/index.html presentation.html
 fi
+
+open presentation.html
