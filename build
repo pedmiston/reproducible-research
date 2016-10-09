@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+revealjs=reveal.js
+
+pandoc \
+        -s \
+        -t revealjs \
+        -o $revealjs/index.html \
+        presentation.md
+
+if [ ! -e presentation.html ];
+then
+    ln $revealjs/index.html presentation.html
+fi
