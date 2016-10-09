@@ -4,12 +4,18 @@ revealjs=reveal.js
 pandoc \
         -s \
         -t revealjs \
+        -V theme="moon" \
+        -c style.css \
         -o $revealjs/index.html \
+        --include-in-header font.html \
         presentation.md
 
 if [ ! -e presentation.html ];
 then
-    ln $revealjs/index.html presentation.html
+    ln -s $revealjs/index.html presentation.html
 fi
 
-open presentation.html
+if [[ ! -z $1 && $1=="-o" ]];
+then
+    open presentation.html
+fi
