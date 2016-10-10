@@ -3,7 +3,7 @@
 # [-o] open presenation.html after
 revealjs=reveal.js
 
-pandoc -t revealjs -o $revealjs/index.html \
+pandoc --section-divs -t revealjs -o $revealjs/index.html \
     -V theme="moon" -c style.css -H font.html \
     presentation.md
 
