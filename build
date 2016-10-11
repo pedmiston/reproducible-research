@@ -4,7 +4,7 @@
 revealjs=reveal.js
 
 pandoc --section-divs -t revealjs -o $revealjs/index.html \
-    -V theme="moon" -c style.css -H font.html \
+    -V theme="moon" -c style.css -H font.html --highlight-style zenburn \
     presentation.md
 
 if [ ! -e presentation.html ];

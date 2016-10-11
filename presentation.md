@@ -6,27 +6,27 @@ Pierce Edmiston
 # How I use python
 
 **Cognitive psychology experiments**
-: on the influence of language on vision and human cognition more broadly.
+: on the influence of language on human cognition.
 
 **Behavioral psychology experiments**
 : to test questions about the evolution of language.
 
-**Basic data science**
-: to glue everything above together.
-
 **Mining Wikipedia article revision histories**
 : to understand the evolution of article quality.
 
+**Basic data science**
+: to glue everything above together.
+
 # ! (How I use python)
 
-- Statistics, modeling, and visualization.
-- In groups.
+- I don't use python for statistics, modeling, and visualization.  
+- Most of the code I write only I ever read.
 
 # Reproducibility
 
 > A tale of two computers.
 
-Reproducibility is an **obsession** for making everything repeatable easily.
+Reproducibility is an **obsession** for making everything able to be repeated and easily repeatable.
 
 # psychopy
 
@@ -36,34 +36,39 @@ Reproducibility is an **obsession** for making everything repeatable easily.
 
 ## Hello world!
 
-    from psychopy import visual, core
-    win = visual.Window(fullsrc=True)
-    text = visual.TextStim(win, "Hello world!")
-    text.draw()
-    win.flip()
-    core.wait(1)
-    core.quit()
+```python
+from psychopy import visual, core
+win = visual.Window(fullsrc=True)
+text = visual.TextStim(win, "Hello world!")
+text.draw()
+win.flip()
+core.wait(1)
+core.quit()
+```
 
 ## Stroop task
 
-    from psychopy import visual, core
-    name, color = 'green', 'red'
-    win = visual.Window(fullscr=True)
-    instructions = "Press the key for the first letter of the color the " + \
-                   "word is printed in (not the first letter of the word)."
-    help = visual.TextStim(win, instructions, pos=[0,-20])
-    stimulus = visual.TextStim(win, name, color=color)
-    help.draw()
-    stimulus.draw()
-    win.flip()
-    response = event.waitKeys(keyList=list('roygbiv'))
+```python
+from psychopy import visual, core
+instructions = "Press the key for the first letter of the color the word is printed in (not the first letter of the word)."
+name, color = 'green', 'red'
+win = visual.Window(fullscr=True)
+header = visual.TextStim(win, instructions, pos=[0,-20])
+stimulus = visual.TextStim(win, name, color=color)
+header.draw()
+stimulus.draw()
+win.flip()
+response = event.waitKeys(keyList=list('roygbiv'))
+```
+
+<small>[Wikipedia: The Stroop effect](https://en.wikipedia.org/wiki/Stroop_effect)</small>
 
 ## Links
 
 - [Package API](http://www.psychopy.org/api/api.html)
 - [Installation instructions](http://www.psychopy.org/installation.html#manual-install)
 
-## Installation methods, I've had a few
+## Installations, I've had a few
 
 - ~~Standard python2 install.~~
 - ~~Anaconda environment with python2~~
@@ -71,20 +76,24 @@ Reproducibility is an **obsession** for making everything repeatable easily.
 
 ## Hurdle #1: scientific python
 
-`psychopy` needs much of the sci-py stack (`numpy`, `scipy`, `matplotlib`), which can be tricky. The solution seems to be to download one of the python environments that bundles the necessary dependencies, like [Enthought Canopy](https://www.enthought.com/products/canopy/) or [Continuum Anaconda](https://www.continuum.io/downloads).
+`psychopy` needs much of the sci-py stack (`numpy`, `scipy`, `matplotlib`). Download one of the python environments that bundles the necessary dependencies:
+
+- [Enthought Canopy](https://www.enthought.com/products/canopy/)
+- [Continuum Anaconda](https://www.continuum.io/downloads)
 
 ## Hurdle #2: sound
 
-psychopy needs either [pygame](http://www.pygame.org/hifi.html) or [pyo](http://ajaxsoundstudio.com/software/pyo/) to play sounds, neither of which are supported by Anaconda or Canopy. I haven't had any luck installing pyo from source, although it should be as easy as:
+`psychopy` needs either `pygame` or `pyo` to play sounds, neither of which are supported by Anaconda or Canopy.
 
-    pip install git+git://github.com/belangeo/pyo.git
+- `pip install git+git://github.com/belangeo/pyo.git`
+- Install from a [binary](http://ajaxsoundstudio.com/software/pyo/)[^1]
 
-Installing from a [binary](http://ajaxsoundstudio.com/software/pyo/) works, but on macOS it installs to a Framework build of python, so the files have to be moved. The sound dylibs seem to be put in the right place.
+[^1]: On macOS it installs to a Framework build of `python`, so the files have to be moved. The sound `dylibs` seem to be put in the right place.
 
 ## Demo
 
-- Sample trial from a cognitive psychology experiment [here](https://github.com/pedmiston/reproducible-research/demos/psychopy).
-- Full experiment: [property-verification](https://github.com/lupyanlab/property-verification).
+- Sample trial from a cognitive psychology experiment [here](https://github.com/pedmiston/reproducible-research/demos/psychopy/run.py).
+- Full experiment: [property-verification](https://github.com/lupyanlab/property-verification/experiment).
 - Paper ([pdf](http://sapir.psych.wisc.edu/papers/edmiston_lupyan_JML.pdf)).
 
 # django
@@ -93,15 +102,14 @@ Installing from a [binary](http://ajaxsoundstudio.com/software/pyo/) works, but 
 
 > Let's run experiments on the web.
 
-- Existing solution using Qualtrics + Mechanical Turk.
-- Example: Artificial music marketplace ([Salganik, Dodds, & Watts, 2006](http://www.princeton.edu/~mjs3/salganik_dodds_watts06_full.pdf))
-- Run a huge game of telephone on the web.
+- Artificial music marketplace ([Salganik, Dodds, & Watts, 2006](http://www.princeton.edu/~mjs3/salganik_dodds_watts06_full.pdf))
+- Run a huge version of the children's game of telephone on the web.
 
-## Telephone app
+## Telephone
 
-1. Click on a link, listen to a recording, and record a response.
-2. Be able to validate the recordings as they come in.
-3. Run different surveys on the imitations once they are gathered.
+1. Listen to a recording, record a response.
+2. Validate recordings as they come in.
+3. Run different surveys on the imitations.
 
 ## Lessons learned
 
@@ -110,42 +118,52 @@ Installing from a [binary](http://ajaxsoundstudio.com/software/pyo/) works, but 
 - However, there are much easier ways (NoSQL, Flask).
 - That said, I'm doing another one in Django.
 
+<small>[Wikipedia: Second-system effect](https://en.wikipedia.org/wiki/Second-system_effect)</small>
+
 ## Demo
 
-- [django app](https://github.com/lupyanlab/telephone)
-- [infrastructure](https://github.com/lupyanlab/telephone-app)
-- [live app](https://telephone.evoapps.xyz)
-- [talk](http://sapir.psych.wisc.edu/evolang/fidelity.html#/)
-- [media](http://www.sciencemag.org/news/2016/03/buzz-thwack-how-sounds-become-words)
+- [Django app](https://github.com/lupyanlab/telephone)
+- [Ansible infrastructure](https://github.com/lupyanlab/telephone-app)
+- [Live app](https://telephone.evoapps.xyz)
+- [Conference talk](http://sapir.psych.wisc.edu/evolang/fidelity.html#/)
+- [Media coverage](http://www.sciencemag.org/news/2016/03/buzz-thwack-how-sounds-become-words)
 
 # invoke
 
-## Raw data
+## Glue for raw data
 
-- Behavioral data ("52 pickup" of plain text files)
+- Behavioral data (.txt)
 - Eyetracking data (.hdf5)
 - Web survey data (Qualtrics, MTurk)
-- SQL data + media files (Telephone)
-- other web queries
+- RDBMS + media files (Telephone)
+- other web queries (Wikipedia)
 
 ## Many options for reproducible data workflows
 
 - make (Makefile)
 - rake (Rakefile)
 - drake (Drakefile)
+- bash (\*)
 - invoke (tasks.py)
 
 ## Hello world!
 
-    $ cat tasks.py
-    from invoke import task
+```bash
+$ cat tasks.py
+```
 
-    @task
-    def hello(ctx):
-        ctx.run("echo Hello World!")
+```python
+from invoke import task
 
-    $ invoke hello
-    Hello World!
+@task
+def hello(ctx):
+    ctx.run("echo Hello World!")
+```
+
+```bash
+$ invoke hello
+Hello World!
+```
 
 ## Links
 
@@ -167,14 +185,18 @@ Installing from a [binary](http://ajaxsoundstudio.com/software/pyo/) works, but 
 
 ## Hello Splendid fairywren!
 
-    $ cat user-config.py
-    family = 'wikipedia'
-    mylang = 'en'
+```bash
+$ cat user-config.py
+family = 'wikipedia'
+mylang = 'en'
+```
 
-    >>> import pywikibot
-    >>> site = pywikibot.Site('en', 'wikipedia')
-    >>> page = pywikibot.Page(site, 'Splendid_fairywren')
-    >>> page.get()
+```python
+>>> import pywikibot
+>>> site = pywikibot.Site('en', 'wikipedia')
+>>> page = pywikibot.Page(site, 'Splendid_fairywren')
+>>> page.get()  # Wikipedia page text in mediawiki format
+```
 
 ## Demo
 
