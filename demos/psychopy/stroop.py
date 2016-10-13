@@ -21,7 +21,7 @@ def run_trial(name, color):
     header.draw()
     stimulus.draw()
     win.flip()
-    response = event.waitKeys(keyList=list('roygbiv'))
+    response = event.waitKeys(keyList=list('roygb'))
 
     key = response[0]
     is_correct = int(key == name[:1])
