@@ -24,7 +24,7 @@ def run_trial(name, color):
     response = event.waitKeys(keyList=list('roygb'))
 
     key = response[0]
-    is_correct = int(key == name[:1])
+    is_correct = int(key == color[:1])
     print name, color, key, is_correct
 
 for trial in trials:
