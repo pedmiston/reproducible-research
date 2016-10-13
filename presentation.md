@@ -202,3 +202,49 @@ mylang = 'en'
 
 - Simple Wikipedia revision downloader with `pywikibot` and `invoke` [here](https://github.com/pedmiston/reproducible-research/demos/pywikibot)
 - Wikischolar demo [here](https://github.com/pedmiston/reproducible-research/demos/wikischolar)
+
+# invoke as a library
+
+## setup.py
+
+```python
+from distutils.core import setup
+
+setup(
+    name='wikischolar',
+    version='0.1.0',
+    packages=['wikischolar'],
+    install_requires=['invoke'],
+    entry_points={
+        'console_scripts': ['sch = wikischolar.main:program.run']
+    },
+)
+```
+
+## main.py
+
+```python
+from invoke import Program
+from wikischolar.tasks import namespace
+
+program = Program(version='0.1.0', namespace=namespace)
+```
+
+## tasks.py
+
+```python
+from invoke import task, Collection
+
+# functions decorated with @task
+# ...
+
+namespace = Collection(
+    load,
+    dump,
+    execute,
+    revisions,
+    qualities,
+    edits,
+    generations,
+)
+```
