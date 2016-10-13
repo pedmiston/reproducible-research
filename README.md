@@ -17,6 +17,7 @@ For real world examples, I'll be referring to a few of my research projects.
 
 - [property-verification](https://github.com/lupyanlab/property-verification/). A reproducible cognitive psychology experiment.
 - [wikischolar](https://github.com/evoapps/wikischolar/). A data science project investigating the evolution of Wikipedia articles.
+- [diachronic-teams](https://github.com/pedmiston/diachronic-teams/). A research project involving invoke tasks for scraping data from Kaggle leaderboards.
 
 ## Using this repo
 
