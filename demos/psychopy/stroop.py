@@ -1,10 +1,33 @@
-from psychopy import visual, core
-instructions = "Press the key for the first letter of the color the word is printed in (not the first letter of the word)."
-name, color = 'green', 'red'
+from psychopy import visual, core, event
+
+instructions = "Press the key for the first letter of the color the word is " +\
+               "printed in (not the first letter of the word)."
+
 win = visual.Window(fullscr=True)
-header = visual.TextStim(win, instructions, pos=[0,-20])
-stimulus = visual.TextStim(win, name, color=color)
-header.draw()
-stimulus.draw()
-win.flip()
-response = event.waitKeys(keyList=list('roygbiv'))
+header = visual.TextStim(win, instructions, pos=[0,0.4], color="black")
+stimulus = visual.TextStim(win)
+
+trials = [
+    ('orange', 'orange'),
+    ('green', 'red'),
+    ('blue', 'green'),
+    ('red', 'red'),
+]
+
+def run_trial(name, color):
+    stimulus.setText(name)
+    stimulus.setColor(color)
+
+    header.draw()
+    stimulus.draw()
+    win.flip()
+    response = event.waitKeys(keyList=list('roygbiv'))
+
+    key = response[0]
+    is_correct = int(key == name[:1])
+    print name, color, key, is_correct
+
+for trial in trials:
+    run_trial(*trial)
+    win.flip()
+    core.wait(1)
