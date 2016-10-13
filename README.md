@@ -29,3 +29,7 @@ repo as a submodule. Actually, it's my personal fork of the reveal.js repo, the 
     git submodule update
     ./build
     open presentation.html
+
+## General notes
+
+I make heavy use of `git submodules` and virtualenv's, using `virtualenvwrapper` as much as possible.
