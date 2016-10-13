@@ -33,3 +33,7 @@
   margin: 0 0 0 0;
   padding: 0 0 0 1em;
 }
+/* Remove shadows */
+.reveal section pre, .reveal section img {
+  box-shadow: none;
+}
