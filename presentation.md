@@ -141,7 +141,7 @@ Let's run experiments on the web!
 - drake (Drakefile)
 - invoke (tasks.py)
 
-+ bash, sed, awk
+(but really, everyone should use more `bash`, `sed`, `awk`!)
 
 ## Hello world!
 
