@@ -12,4 +12,4 @@ def get(ctx, title, n_revisions=10, content=False, output_csv=None):
     records = [next(revisions).__dict__ for _ in range(n_revisions)]
     table = pandas.DataFrame.from_records(records)
     table.insert(0, 'title', title)
-    table.to_csv(output or sys.stdout, index=False)
+    table.to_csv(output_csv or sys.stdout, index=False)
