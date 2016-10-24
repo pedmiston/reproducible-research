@@ -91,8 +91,8 @@ response = event.waitKeys(keyList=list('roygbiv'))
 
 ## Demo
 
-- Sample trial from a cognitive psychology experiment [here](https://github.com/pedmiston/reproducible-research/demos/psychopy/run.py).
-- Full experiment: [property-verification](https://github.com/lupyanlab/property-verification/experiment).
+- Sample trial from a cognitive psychology experiment [here](https://github.com/pedmiston/reproducible-research/blob/master/demos/psychopy/property_verification.py).
+- Full experiment: [property-verification](https://github.com/lupyanlab/property-verification/tree/master/experiment).
 
 # django
 
@@ -141,7 +141,7 @@ Let's run experiments on the web!
 - drake (Drakefile)
 - invoke (tasks.py)
 
-+ bash, sed, awk
+(but really, everyone should use more `bash`, `sed`, `awk`!)
 
 ## Hello world!
 
@@ -213,8 +213,12 @@ $ inv get "Splendid fairywren" -n 100 -o splendid_fairywren.csv
 
 ## Wikipedia articles about Wikipedia articles
 
+My goal was to allow people to research with `wikischolar` all of the Wikipedia articles on a particular list article.
+
 - [Lists of lists of lists](https://en.wikipedia.org/wiki/List_of_lists_of_lists)
-- [Current US Senators](List_of_current_United_States_Senators)
+- Ex: [Current US Senators](List_of_current_United_States_Senators)
+
+A script for parsing a Wikipedia List article into a csv of article titles for consumption by `wikischolar` is available [here](https://github.com/evoapps/wikischolar/blob/master/bin/senators.py).
 
 ## setup.py
 
