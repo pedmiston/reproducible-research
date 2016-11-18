@@ -1,8 +1,9 @@
 # Reproducible research
 
-How open source has made me a better researcher.
+How open source has made me a reproducible researcher:
 
 - Version control systems
+- Dynamic documents
 - Hollow research projects
-- Infrastructure as code
-- Why does reproducibility matter?
+
+Why is reproducible research better?
