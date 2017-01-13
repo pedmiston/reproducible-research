@@ -1,8 +1,3 @@
-# Reproducible research
+# Adopting open source practices for better science
 
-How open source has made me a better researcher.
-
-- Version control systems
-- Hollow research projects
-- Infrastructure as code
-- Why does reproducibility matter?
+Reproducibility is fundamental both to science and to open source, but only open source is any good at it. I'll introduce three problems in reproducibility, explain how they've already been solved by the open source community, and demonstrate how these solutions can be utilized by open researchers to make for better and more reproducible science. I'll cover version control systems, dynamic documents, and "hollow research projects"--what I consider to be the epitome of reproducible research. To close I'll review the empirical evidence that open source practices make for better science, and offer some speculation from the perspective of cultural evolution as to why open source has been so successful.
