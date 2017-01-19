@@ -1,0 +1,22 @@
+# Adopting open source practices for better science
+Pierce Edmiston  
+<pedmiston@wisc.edu>  
+[github.com/pedmiston](https://github.com/pedmiston)
+
+# Version control
+
+## 
+
+![](https://upload.wikimedia.org/wikipedia/commons/9/91/Conn_-_Climbing_Ethics_-_Summit_July_1957_-_1.jpg)
+
+##
+
+```{r engine="dot"}
+digraph {
+    v0 -> v1 -> v2 -> v3;
+}
+```
+
+# Dynamic documents
+
+# Hollow projects
