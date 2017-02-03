@@ -3,18 +3,60 @@ Pierce Edmiston
 <pedmiston@wisc.edu>  
 [github.com/pedmiston](https://github.com/pedmiston)
 
+```{r, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE)
+read_chunk("presentation.R")
+```
+
+```{r setup}
+```
+
+# Why reproducibility?
+
+## The reproducibility crisis
+
+## Foster productive collaborations
+
+# What is reproducible research?
+
+# How do I make my research more reproducible?
+
+#. Version control
+#. Dynamic documents
+#. "Hollow" research projects
+
 # Version control
 
-## 
+## Examples
+
+```{r, fig.width=12}
+grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
+```
+
+## Safety net
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/91/Conn_-_Climbing_Ethics_-_Summit_July_1957_-_1.jpg)
 
-##
+## Lingua franca
 
-```{r engine="dot"}
+- **git**
+- mercurial
+- subversion
+
+## Forks and branches
+
+```{r}
+DiagrammeR::grViz("
 digraph {
-    v0 -> v1 -> v2 -> v3;
-}
+  rankdir = LR;
+  node[label = ''];
+  m0 -> m1 -> m2 -> m3;
+  b0, b1[style = invis];
+  b0 -> b1 -> b2[style = invis];
+  b2 -> b3;
+  m1 -> b2[constraint = false];
+}", height = 200)
 ```
 
 # Dynamic documents
