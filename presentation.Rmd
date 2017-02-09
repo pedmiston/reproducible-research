@@ -1,6 +1,7 @@
 # Adopting open source practices for better science
 Pierce Edmiston  
 <pedmiston@wisc.edu>  
+Lupyan Lab [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)
 [github.com/pedmiston](https://github.com/pedmiston)
 
 ```{r, include=FALSE}
@@ -12,37 +13,51 @@ read_chunk("presentation.R")
 ```{r setup}
 ```
 
-# Why reproducibility?
+# Outline
 
-## The reproducibility crisis
+Open source practices that make for more reproducible science:
 
-## Foster productive collaborations
+1. Version control
+2. Dynamic documents
+3. Building from source
 
-# What is reproducible research?
+Conclusion: It's worth it!
 
-# How do I make my research more reproducible?
+# Why I care about reproducible research
 
-#. Version control
-#. Dynamic documents
-#. "Hollow" research projects
+- [Open Science Collaboration. 2015. Estimating the reproducibility of psychological science. _Science_.](http://science.sciencemag.org/content/349/6251/aac4716)
+- [Palmeri, K. 2016. Psychology is in crisis over whether it's in crisis. _WIRED_.](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/)
+- [Ioannidis, J. 2005. Why most published research findings are false. _PLOS Medicine_](http://dx.doi.org/10.1371/journal.pmed.0020124)
 
-# Version control
+<aside class="notes">
+</aside>
+
+# Why open source is the answer
+
+> My collaborators should be able to reproduce my research.
+> Anyone should be able to use and contribute to this project.
+
+# 1. Version control
 
 ## Examples
 
-```{r, fig.width=12}
+```{r, fig.width=12, fig.cap="Version control in the wild."}
 grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
 ```
 
-## Safety net
+## Tools for climbing
 
-![](https://upload.wikimedia.org/wikipedia/commons/9/91/Conn_-_Climbing_Ethics_-_Summit_July_1957_-_1.jpg)
+![](https://upload.wikimedia.org/wikipedia/commons/b/b8/Assorted_Nuts_and_Nut_Tool.jpg)
 
-## Lingua franca
+## Pick your poison
 
 - **git**
 - mercurial
 - subversion
+
+<aside class="notes">
+My requirements for choosing version control system are that it is **open source** and supports **distributed** collaboration and merge operations, which most modern VCSs do.
+</aside>
 
 ## Forks and branches
 
@@ -58,6 +73,40 @@ digraph {
   m1 -> b2[constraint = false];
 }", height = 200)
 ```
+
+## Submodules
+
+<aside class="notes">
+One neat thing you can do with `git` (and likely other VCS but I don't know for sure) is link projects within other projects as "submodules". Version controlled projects are called "repos", and submodules are repos within repos.
+
+Imagine I have two separate research projects, each with its own repo. Now I'm giving a presentation and I want to talk about results from both of those projects. Or I'm submitting some of the preliminary results from these research projects to a conference or journal. Rather than copying over the results from each research project into the new presentation, you could just include the research project as a submodule. This would basically link the research project at a particular time to the presentation being given or manuscript being submitted.
+</aside>
+
+    talk or pub/
+    ├── research_project_1
+    └── research_project_2
+
+<aside class="notes">
+I should warn you that submodules are a bit clunky and I don't think that most people in the open source community advocate too much for using them. But as a tool used carefully it allows for the formal linking of different kinds of repos.
+
+Here's a different use-case for submodules, one that I don't think people are doing, but one that would be very interesting to see take off. Here the root project is a meta-analysis of many different research projects. Even if all the research projects contained was plain text data files of the results of the research project (and some accompanying documentation) this could be an extraordinarily effective way of facilitating meta-analytic analysis.
+</aside>
+
+    meta-analysis/
+    ├── research_project_1
+    ├── ...
+    └── research_project_n
+
+<aside class="notes">
+The final use case is one that I actually use, and it's a case where a research project just gets really complicated and has multiple parts, and it helps to break off different parts to be their own submodules.
+</aside>
+
+    project/
+    ├── **web-app**  -> also installed on web server
+    ├── **psychopy** -> also installed on lab computers
+    ├── **r-pkg**    -> installed by anyone who wants the data
+    ├── conference
+    └── journal
 
 # Dynamic documents
 
