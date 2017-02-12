@@ -1,7 +1,7 @@
 # Adopting open source practices for better science
 Pierce Edmiston  
 <pedmiston@wisc.edu>  
-Lupyan Lab [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)
+Lupyan Lab, [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)
 [github.com/pedmiston](https://github.com/pedmiston)
 
 ```{r, include=FALSE}
@@ -34,7 +34,7 @@ Conclusion: It's worth it!
 
 # Why open source is the answer
 
-> My collaborators should be able to reproduce my research.
+> My collaborators should be able to reproduce my research.  
 > Anyone should be able to use and contribute to this project.
 
 # 1. Version control
@@ -47,7 +47,9 @@ grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1
 
 ## Tools for climbing
 
-![](https://upload.wikimedia.org/wikipedia/commons/b/b8/Assorted_Nuts_and_Nut_Tool.jpg)
+```{r}
+img("climbing-tools", ".jpg", draw = TRUE)
+```
 
 ## Pick your poison
 
@@ -102,12 +104,32 @@ The final use case is one that I actually use, and it's a case where a research 
 </aside>
 
     project/
-    ├── **web-app**  -> also installed on web server
-    ├── **psychopy** -> also installed on lab computers
-    ├── **r-pkg**    -> installed by anyone who wants the data
+    ├── *web-app*  -> also installed on web server
+    ├── *psychopy* -> also installed on lab computers
+    ├── *r-pkg*    -> installed by anyone who wants the data
     ├── conference
     └── journal
 
 # Dynamic documents
 
-# Hollow projects
+## Don't Repeat Yourself (DRY)
+
+> Every piece of knowledge must have a single, unambiguous, authoritative representation within a system (Hunt & Thomas, 1999, [_The pragmatic programmer_](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer)).
+
+## Literate programming (LP)
+
+Knuth, Donald E. (1983). [Literate programming](https://en.wikipedia.org/wiki/Literate_programming).  
+* Intermingle prose and code for better understanding of the program.
+* The explanation of a program does not need to resemble the program structure.
+
+## Sphinx
+
+Examples:  
+* Python standard library: [json](https://docs.python.org/3/library/json.html)
+* Third party package: [requests](http://docs.python-requests.org/en/master/api/#requests.request)
+
+## Knitr
+
+    Participants in condition A outperformed participants in condition B, `report_model_results(mod, param = "condition")`.
+
+# Building from source
