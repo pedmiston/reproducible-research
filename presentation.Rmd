@@ -8,6 +8,7 @@ Lupyan Lab, [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)
 library(knitr)
 opts_chunk$set(echo = FALSE, message = FALSE)
 read_chunk("presentation.R")
+knitLiteral::kast_on()
 ```
 
 ```{r setup}
@@ -118,18 +119,28 @@ The final use case is one that I actually use, and it's a case where a research 
 
 ## Literate programming (LP)
 
-Knuth, Donald E. (1983). [Literate programming](https://en.wikipedia.org/wiki/Literate_programming).  
+Knuth, Donald E. (1983). [Literate programming](https://en.wikipedia.org/wiki/Literate_programming).
+
 * Intermingle prose and code for better understanding of the program.
 * The explanation of a program does not need to resemble the program structure.
 
 ## Sphinx
 
-Examples:  
+Examples:
+
 * Python standard library: [json](https://docs.python.org/3/library/json.html)
 * Third party package: [requests](http://docs.python-requests.org/en/master/api/#requests.request)
 
 ## Knitr
 
+Evergreen statistics:
+
     Participants in condition A outperformed participants in condition B, `report_model_results(mod, param = "condition")`.
+
+Reproducible plots:
+    
+```{r, eval=FALSE, literal=TRUE}
+plot(df)
+```
 
 # Building from source
