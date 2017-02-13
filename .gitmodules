@@ -1,9 +1,0 @@
-[submodule "reveal.js"]
-	path = reveal.js
-	url = git@github.com:pedmiston/reveal.js
-[submodule "demos/wikischolar"]
-	path = demos/wikischolar
-	url = git@github.com:evoapps/wikischolar
-[submodule "demos/diachronic-teams"]
-	path = demos/diachronic-teams
-	url = git@github.com:pedmiston/diachronic-teams

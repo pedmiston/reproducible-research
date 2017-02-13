@@ -1,2 +1,0 @@
-family = 'wikipedia'
-mylang = 'en'

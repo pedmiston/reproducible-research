@@ -1,24 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adopting open source practices for better science</title>
+    <meta charset="utf-8">
+    <link href="presentation_files/remark-css-0.0.1/example.css" rel="stylesheet" />
+    <script src="presentation_files/htmlwidgets-0.8/htmlwidgets.js"></script>
+    <script src="presentation_files/viz-0.3/viz.js"></script>
+    <link href="presentation_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="presentation_files/grViz-binding-0.9.0/grViz.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Adopting open source practices for better science
+
 ---
-title: Adopting open source practices for better science
-output:
-  xaringan::moon_reader
----
+
 
 # Adopting open source practices for better science
 Pierce Edmiston  
-<pedmiston@wisc.edu>  
+&lt;pedmiston@wisc.edu&gt;  
 Lupyan Lab, [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)  
 [github.com/pedmiston](https://github.com/pedmiston)
 
-```{r, include=FALSE}
-library(knitr)
-opts_chunk$set(echo = FALSE, message = FALSE)
-read_chunk("presentation.R")
-knitLiteral::kast_on()
-```
 
-```{r setup}
-```
+
+
 ---
 # Outline
 
@@ -37,14 +45,14 @@ Conclusion: It's worth it!
 - [Palmeri, K. 2016. Psychology is in crisis over whether it's in crisis. _WIRED_.](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/)
 - [Ioannidis, J. 2005. Why most published research findings are false. _PLOS Medicine_](http://dx.doi.org/10.1371/journal.pmed.0020124)
 
-<aside class="notes">
-</aside>
+&lt;aside class="notes"&gt;
+&lt;/aside&gt;
 
 ---
 # Why open source is the answer
 
-> My collaborators should be able to reproduce my research.  
-> Anyone should be able to use and contribute to this project.
+&gt; My collaborators should be able to reproduce my research.  
+&gt; Anyone should be able to use and contribute to this project.
 
 ---
 # 1. Version control
@@ -52,16 +60,15 @@ Conclusion: It's worth it!
 ---
 ## Examples
 
-```{r, fig.width=12, fig.cap="Version control in the wild."}
-grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
-```
+&lt;div class="figure"&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" alt="Version control in the wild." width="1152" /&gt;
+&lt;p class="caption"&gt;Version control in the wild.&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 ## Tools for climbing
 
-```{r}
-img("climbing-tools", ".jpg", draw = TRUE)
-```
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="672" /&gt;
 
 ---
 ## Pick your poison
@@ -70,58 +77,48 @@ img("climbing-tools", ".jpg", draw = TRUE)
 - mercurial
 - subversion
 
-<aside class="notes">
+&lt;aside class="notes"&gt;
 My requirements for choosing version control system are that it is **open source** and supports **distributed** collaboration and merge operations, which most modern VCSs do.
-</aside>
+&lt;/aside&gt;
 
 ---
 ## Forks and branches
 
-```{r}
-DiagrammeR::grViz("
-digraph {
-  rankdir = LR;
-  node[label = ''];
-  m0 -> m1 -> m2 -> m3;
-  b0, b1[style = invis];
-  b0 -> b1 -> b2[style = invis];
-  b2 -> b3;
-  m1 -> b2[constraint = false];
-}", height = 200)
-```
+<div id="htmlwidget-831d45d03e34844f64c5" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-831d45d03e34844f64c5">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  node[label = \"\"];\n  m0 -> m1 -> m2 -> m3;\n  b0, b1[style = invis];\n  b0 -> b1 -> b2[style = invis];\n  b2 -> b3;\n  m1 -> b2[constraint = false];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 ## Submodules
 
-<aside class="notes">
+&lt;aside class="notes"&gt;
 One neat thing you can do with `git` (and likely other VCS but I don't know for sure) is link projects within other projects as "submodules". Version controlled projects are called "repos", and submodules are repos within repos.
 
 Imagine I have two separate research projects, each with its own repo. Now I'm giving a presentation and I want to talk about results from both of those projects. Or I'm submitting some of the preliminary results from these research projects to a conference or journal. Rather than copying over the results from each research project into the new presentation, you could just include the research project as a submodule. This would basically link the research project at a particular time to the presentation being given or manuscript being submitted.
-</aside>
+&lt;/aside&gt;
 
     talk or pub/
     ├── research_project_1
     └── research_project_2
 
-<aside class="notes">
+&lt;aside class="notes"&gt;
 I should warn you that submodules are a bit clunky and I don't think that most people in the open source community advocate too much for using them. But as a tool used carefully it allows for the formal linking of different kinds of repos.
 
 Here's a different use-case for submodules, one that I don't think people are doing, but one that would be very interesting to see take off. Here the root project is a meta-analysis of many different research projects. Even if all the research projects contained was plain text data files of the results of the research project (and some accompanying documentation) this could be an extraordinarily effective way of facilitating meta-analytic analysis.
-</aside>
+&lt;/aside&gt;
 
     meta-analysis/
     ├── research_project_1
     ├── ...
     └── research_project_n
 
-<aside class="notes">
+&lt;aside class="notes"&gt;
 The final use case is one that I actually use, and it's a case where a research project just gets really complicated and has multiple parts, and it helps to break off different parts to be their own submodules.
-</aside>
+&lt;/aside&gt;
 
     project/
-    ├── *web-app*  -> also installed on web server
-    ├── *psychopy* -> also installed on lab computers
-    ├── *r-pkg*    -> installed by anyone who wants the data
+    ├── *web-app*  -&gt; also installed on web server
+    ├── *psychopy* -&gt; also installed on lab computers
+    ├── *r-pkg*    -&gt; installed by anyone who wants the data
     ├── conference
     └── journal
 
@@ -131,7 +128,7 @@ The final use case is one that I actually use, and it's a case where a research 
 ---
 ## Don't Repeat Yourself (DRY)
 
-> Every piece of knowledge must have a single, unambiguous, authoritative representation within a system (Hunt & Thomas, 1999, [_The pragmatic programmer_](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer)).
+&gt; Every piece of knowledge must have a single, unambiguous, authoritative representation within a system (Hunt &amp; Thomas, 1999, [_The pragmatic programmer_](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer)).
 
 ---
 ## Literate programming (LP)
@@ -158,9 +155,34 @@ Participants in condition A outperformed participants in condition B, `report_mo
 
 Reproducible plots:
     
-&#96``{r, eval=FALSE, literal=TRUE}
+&amp;#96``{r, eval=FALSE, literal=TRUE}
 plot(df)
-&#96``
+&amp;#96``
 
 ---
 # Building from source
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

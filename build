@@ -1,18 +1,4 @@
 #!/usr/bin/env bash
-# build [-o] -- build presentation.html from presentation.md
-# [-o] open presenation.html after
-revealjs=reveal.js
-
-pandoc --section-divs -t revealjs -o $revealjs/index.html \
-    -V theme="moon" -c static/style.css -H static/font.html --highlight-style zenburn \
-    presentation.md
-
-if [ ! -e presentation.html ];
-then
-    ln -s $revealjs/index.html presentation.html
-fi
-
-if [ $1=="-o" ];
-then
-    open presentation.html
-fi
+Rscript -e 'rmarkdown::render("presentation.Rmd", clean=FALSE)'
+mv presentation.knit.md presentation.md
+rm -f presentation.utf8.md

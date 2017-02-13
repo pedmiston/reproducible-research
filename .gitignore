@@ -1,4 +1,8 @@
-presentation.html
-*.pyc
+# os/editor
 .DS_Store
 *.swp
+
+# R/RStudio
+libs/
+*_files/
+.Rproj.user

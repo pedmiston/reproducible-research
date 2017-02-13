@@ -10,15 +10,9 @@ Pierce Edmiston
 Lupyan Lab, [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)  
 [github.com/pedmiston](https://github.com/pedmiston)
 
-```{r, include=FALSE}
-library(knitr)
-opts_chunk$set(echo = FALSE, message = FALSE)
-read_chunk("presentation.R")
-knitLiteral::kast_on()
-```
 
-```{r setup}
-```
+
+
 ---
 # Outline
 
@@ -52,16 +46,15 @@ Conclusion: It's worth it!
 ---
 ## Examples
 
-```{r, fig.width=12, fig.cap="Version control in the wild."}
-grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
-```
+<div class="figure">
+<img src="presentation_files/figure-html/unnamed-chunk-2-1.png" alt="Version control in the wild." width="1152" />
+<p class="caption">Version control in the wild.</p>
+</div>
 
 ---
 ## Tools for climbing
 
-```{r}
-img("climbing-tools", ".jpg", draw = TRUE)
-```
+<img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 ---
 ## Pick your poison
@@ -77,18 +70,8 @@ My requirements for choosing version control system are that it is **open source
 ---
 ## Forks and branches
 
-```{r}
-DiagrammeR::grViz("
-digraph {
-  rankdir = LR;
-  node[label = ''];
-  m0 -> m1 -> m2 -> m3;
-  b0, b1[style = invis];
-  b0 -> b1 -> b2[style = invis];
-  b2 -> b3;
-  m1 -> b2[constraint = false];
-}", height = 200)
-```
+<!--html_preserve--><div id="htmlwidget-831d45d03e34844f64c5" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-831d45d03e34844f64c5">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  node[label = \"\"];\n  m0 -> m1 -> m2 -> m3;\n  b0, b1[style = invis];\n  b0 -> b1 -> b2[style = invis];\n  b2 -> b3;\n  m1 -> b2[constraint = false];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ---
 ## Submodules
