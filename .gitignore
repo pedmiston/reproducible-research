@@ -4,5 +4,6 @@
 
 # R/RStudio
 libs/
-*_files/
+presentation_files/*
+!presentation_files/figure-html/
 .Rproj.user
