@@ -12,8 +12,13 @@ img <- function(stem, ext = ".png", draw = FALSE) {
     stop(paste("unknown image ext", ext))
   }
   
-  grob <- file.path("img", paste0(stem, ext)) %>%
-    image_reader() %>%
+  if (file.exists(stem)) {
+    img_path <- stem
+  } else {
+    img_path <- file.path("img", paste0(stem, ext))
+  }
+  
+  grob <- image_reader(img_path) %>%
     grid::rasterGrob()
   
   if (draw == TRUE) {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Adopting open source practices for better science</title>
+    <title>Adopting open source practices   for better science</title>
     <meta charset="utf-8">
     <link href="presentation_files/remark-css-0.0.1/example.css" rel="stylesheet" />
     <script src="presentation_files/htmlwidgets-0.8/htmlwidgets.js"></script>
@@ -13,16 +13,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Adopting open source practices for better science
+# Adopting open source practices <br/> for better science
+### <p>Pierce Edmiston<br />
+<a href="mailto:pedmiston@wisc.edu">pedmiston@wisc.edu</a><br />
+<a href="http://sapir.psych.wisc.edu">sapir.psych.wisc.edu</a><br />
+<a href="https://github.com/pedmiston">github.com/pedmiston</a></p>
 
 ---
 
 
-# Adopting open source practices for better science
-Pierce Edmiston  
-&lt;pedmiston@wisc.edu&gt;  
-Lupyan Lab, [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu/)  
-[github.com/pedmiston](https://github.com/pedmiston)
 
 
 
@@ -41,12 +40,19 @@ Conclusion: It's worth it!
 ---
 # Why I care about reproducible research
 
-- [Open Science Collaboration. 2015. Estimating the reproducibility of psychological science. _Science_.](http://science.sciencemag.org/content/349/6251/aac4716)
+&lt;div class="figure"&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" alt="[Open Science Collaboration. 2015. Estimating the reproducibility of psychological science. _Science_.](http://science.sciencemag.org/content/349/6251/aac4716)" width="672" /&gt;
+&lt;p class="caption"&gt;[Open Science Collaboration. 2015. Estimating the reproducibility of psychological science. _Science_.](http://science.sciencemag.org/content/349/6251/aac4716)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
 - [Palmeri, K. 2016. Psychology is in crisis over whether it's in crisis. _WIRED_.](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/)
 - [Ioannidis, J. 2005. Why most published research findings are false. _PLOS Medicine_](http://dx.doi.org/10.1371/journal.pmed.0020124)
 
-&lt;aside class="notes"&gt;
-&lt;/aside&gt;
+???
+
+&gt; Scientific claims should not gain credence because of the status or authority of their originator but by the replicability of their supporting evidence.
 
 ---
 # Why open source is the answer
@@ -61,14 +67,14 @@ Conclusion: It's worth it!
 ## Examples
 
 &lt;div class="figure"&gt;
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" alt="Version control in the wild." width="1152" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" alt="Version control in the wild." width="1152" /&gt;
 &lt;p class="caption"&gt;Version control in the wild.&lt;/p&gt;
 &lt;/div&gt;
 
 ---
 ## Tools for climbing
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" /&gt;
 
 ---
 ## Pick your poison
@@ -84,8 +90,8 @@ My requirements for choosing version control system are that it is **open source
 ---
 ## Forks and branches
 
-<div id="htmlwidget-831d45d03e34844f64c5" style="width:672px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-831d45d03e34844f64c5">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  node[label = \"\"];\n  m0 -> m1 -> m2 -> m3;\n  b0, b1[style = invis];\n  b0 -> b1 -> b2[style = invis];\n  b2 -> b3;\n  m1 -> b2[constraint = false];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e681ddd89ddadb2d795b" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e681ddd89ddadb2d795b">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  node[label = \"\"];\n  m0 -> m1 -> m2 -> m3;\n  b0, b1[style = invis];\n  b0 -> b1 -> b2[style = invis];\n  b2 -> b3;\n  m1 -> b2[constraint = false];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 ## Submodules
