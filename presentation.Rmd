@@ -6,7 +6,8 @@ author: |
   [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu)  
   [github.com/pedmiston](https://github.com/pedmiston)
 output:
-  xaringan::moon_reader
+  xaringan::moon_reader:
+    css: ["default", "static/font.css"]
 ---
 
 # Outline
@@ -99,7 +100,7 @@ digraph {
   node[label = ''; style = 'filled'; fillcolor = '#8DA0CB'];
 
   t2;
-  
+
   b0 -> b1 -> b2 -> b3[style = invis];
   m0 -> m1 -> m2 -> m3;
   t0 -> t1 -> t2[style = invis];
