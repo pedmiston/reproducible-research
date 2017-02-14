@@ -26,25 +26,27 @@ Conclusion: It's worth it!
 # Why I care about reproducibility
 
 1. I want my research to be reproducible.
-2. I want it to be easy for collaborators to join.
+2. I want to attract collaborators.
 
 ---
 # The reproducibility crisis
 
-Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_. [link](http://science.sciencemag.org/content/349/6251/aac4716).
+<small>Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_.</small>
 
-<img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="presentation_files/figure-html/reproducibility-crisis-1.png" width="672" />
 
 ---
 # Why isn't psychological research more reproducible?
 
-- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_. [link](http://doi.org/10.1177/0956797611417632).
-- Gelman & Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript. [link](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
-- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_. [link](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/).
-- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_. [link](http://dx.doi.org/10.1371/journal.pmed.0020124).
+- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_.
+- Gelman & Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript.
+- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_.
 
 ---
 # Why open source is the answer
+
+Compare the following goals of reproducibility in science and in open source:
 
 > My collaborators should be able to reproduce my research.  
 > Anyone should be able to use and contribute to this project.
@@ -52,16 +54,13 @@ Open Science Collaboration. (2015). Estimating the reproducibility of psychologi
 ---
 # Open source science
 
-- Reproducibility for confidence
-- Reproducibility for collaboration
+<!--html_preserve--><div id="htmlwidget-3be565ad26e64f49c0be" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3be565ad26e64f49c0be">{"x":{"diagram":"\ndigraph {\n  label = \"Reason for reproducibility\";\n  labelloc = t;\n  fontname = Helvetica;\n  rankdir = LR;\n  node[shape = none, fontname = Helvetica];\n  confidence -> collaboration;\n  confidence[label = \"Confidence\"];\n  collaboration[label = \"Collaboration\"];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ---
 # Version control
 
-<div class="figure">
-<img src="presentation_files/figure-html/unnamed-chunk-3-1.png" alt="Version control in the wild." width="1152" />
-<p class="caption">Version control in the wild.</p>
-</div>
+<img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="1152" />
 
 ---
 # Pick your poison
@@ -73,18 +72,22 @@ Open Science Collaboration. (2015). Estimating the reproducibility of psychologi
 ---
 # Tools for climbing
 
-<img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+???
+
+There are a number of ways to think about version control. One way is to think about it as a safety net, that no matter what you do, you can always roll back to what it was before. This is the power of the "undo" button. However, this doesn't really get at why I think version control is such a powerful tool. A better analogy is to think about version control as a tool for climbing. The picture is of tools used by rock climbers called "nuts" that you jam into a crack in the rock, and then you can use it as a hold. This is how I think about version control. It definitely has the effect of keeping you safer, but it also allows you to climb in places you otherwise wouldn't be able to.
 
 ---
 # Conquer clutter
 
-<img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ---
 # Forks and branches
 
-<!--html_preserve--><div id="htmlwidget-46d959a854643bac36e1" style="width:672px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-46d959a854643bac36e1">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-429d8e63516ccead76dc" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-429d8e63516ccead76dc">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ---
 # Submodules
@@ -135,7 +138,7 @@ A final example is one where submodules can help unite the many different parts 
 
 It only really works on plaintext files.
 
-<img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 ---
 # Dynamic documents
@@ -169,7 +172,7 @@ Knuth, Donald E. (1983). _Literate programming_. [wiki](https://en.wikipedia.org
 ---
 # Project Jupyter
 
-<img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 ---
 # Knitr
@@ -181,7 +184,7 @@ Participants in condition A outperformed participants in condition B, `report_mo
 ---
 # Knitr
 
-<img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 ---
 # Dynamic documents in research and education

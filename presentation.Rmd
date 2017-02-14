@@ -30,27 +30,29 @@ source("presentation.R")
 # Why I care about reproducibility
 
 1. I want my research to be reproducible.
-2. I want it to be easy for collaborators to join.
+2. I want to attract collaborators.
 
 ---
 # The reproducibility crisis
 
-Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_. [link](http://science.sciencemag.org/content/349/6251/aac4716).
+<small>Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_.</small>
 
-```{r}
+```{r reproducibility-crisis}
 img("refs/osc_2015_science/fig3.png", draw = TRUE)
 ```
 
 ---
 # Why isn't psychological research more reproducible?
 
-- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_. [link](http://doi.org/10.1177/0956797611417632).
-- Gelman & Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript. [link](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
-- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_. [link](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/).
-- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_. [link](http://dx.doi.org/10.1371/journal.pmed.0020124).
+- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_.
+- Gelman & Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript.
+- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_.
 
 ---
 # Why open source is the answer
+
+Compare the following goals of reproducibility in science and in open source:
 
 > My collaborators should be able to reproduce my research.  
 > Anyone should be able to use and contribute to this project.
@@ -58,13 +60,21 @@ img("refs/osc_2015_science/fig3.png", draw = TRUE)
 ---
 # Open source science
 
-- Reproducibility for confidence
-- Reproducibility for collaboration
+```{r open-source-science}
+DiagrammeR::grViz("
+digraph {
+  rankdir = LR;
+  node[shape = none, fontname = Helvetica];
+  confidence -> collaboration;
+  confidence[label = 'Confidence'];
+  collaboration[label = 'Collaboration'];
+}", height = 200)
+```
 
 ---
 # Version control
 
-```{r, fig.width=12, fig.cap="Version control in the wild."}
+```{r, fig.width=12}
 grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
 ```
 
@@ -81,6 +91,10 @@ grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1
 ```{r}
 img("climbing-tools", ".jpg", draw = TRUE)
 ```
+
+???
+
+There are a number of ways to think about version control. One way is to think about it as a safety net, that no matter what you do, you can always roll back to what it was before. This is the power of the "undo" button. However, this doesn't really get at why I think version control is such a powerful tool. A better analogy is to think about version control as a tool for climbing. The picture is of tools used by rock climbers called "nuts" that you jam into a crack in the rock, and then you can use it as a hold. This is how I think about version control. It definitely has the effect of keeping you safer, but it also allows you to climb in places you otherwise wouldn't be able to.
 
 ---
 # Conquer clutter

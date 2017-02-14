@@ -4,15 +4,15 @@
     <title>Adopting open source practices for better science</title>
     <meta charset="utf-8">
     <link href="presentation_files/remark-css-0.0.1/example.css" rel="stylesheet" />
-    <script src="presentation_files/htmlwidgets-0.7/htmlwidgets.js"></script>
+    <script src="presentation_files/htmlwidgets-0.8/htmlwidgets.js"></script>
     <script src="presentation_files/viz-0.3/viz.js"></script>
     <link href="presentation_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-    <script src="presentation_files/grViz-binding-0.8.4/grViz.js"></script>
+    <script src="presentation_files/grViz-binding-0.9.0/grViz.js"></script>
     <link rel="stylesheet" href="static/font.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse
+class: center, middle, inverse, title-slide
 
 # Adopting open source practices for better science
 ### <p>Pierce Edmiston<br />
@@ -39,25 +39,27 @@ Conclusion: It's worth it!
 # Why I care about reproducibility
 
 1. I want my research to be reproducible.
-2. I want it to be easy for collaborators to join.
+2. I want to attract collaborators.
 
 ---
 # The reproducibility crisis
 
-Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_. [link](http://science.sciencemag.org/content/349/6251/aac4716).
+&lt;small&gt;Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_.&lt;/small&gt;
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/reproducibility-crisis-1.png" width="672" /&gt;
 
 ---
 # Why isn't psychological research more reproducible?
 
-- Simmons, Nelson, &amp; Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_. [link](http://doi.org/10.1177/0956797611417632).
-- Gelman &amp; Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript. [link](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
-- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_. [link](https://www.wired.com/2016/03/psychology-crisis-whether-crisis/).
-- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_. [link](http://dx.doi.org/10.1371/journal.pmed.0020124).
+- Simmons, Nelson, &amp; Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_.
+- Gelman &amp; Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript.
+- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_.
 
 ---
 # Why open source is the answer
+
+Compare the following goals of reproducibility in science and in open source:
 
 &gt; My collaborators should be able to reproduce my research.  
 &gt; Anyone should be able to use and contribute to this project.
@@ -65,16 +67,13 @@ Open Science Collaboration. (2015). Estimating the reproducibility of psychologi
 ---
 # Open source science
 
-- Reproducibility for confidence
-- Reproducibility for collaboration
+<div id="htmlwidget-3be565ad26e64f49c0be" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3be565ad26e64f49c0be">{"x":{"diagram":"\ndigraph {\n  label = \"Reason for reproducibility\";\n  labelloc = t;\n  fontname = Helvetica;\n  rankdir = LR;\n  node[shape = none, fontname = Helvetica];\n  confidence -> collaboration;\n  confidence[label = \"Confidence\"];\n  collaboration[label = \"Collaboration\"];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 # Version control
 
-&lt;div class="figure"&gt;
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" alt="Version control in the wild." width="1152" /&gt;
-&lt;p class="caption"&gt;Version control in the wild.&lt;/p&gt;
-&lt;/div&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="1152" /&gt;
 
 ---
 # Pick your poison
@@ -86,18 +85,22 @@ Open Science Collaboration. (2015). Estimating the reproducibility of psychologi
 ---
 # Tools for climbing
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="672" /&gt;
+
+???
+
+There are a number of ways to think about version control. One way is to think about it as a safety net, that no matter what you do, you can always roll back to what it was before. This is the power of the "undo" button. However, this doesn't really get at why I think version control is such a powerful tool. A better analogy is to think about version control as a tool for climbing. The picture is of tools used by rock climbers called "nuts" that you jam into a crack in the rock, and then you can use it as a hold. This is how I think about version control. It definitely has the effect of keeping you safer, but it also allows you to climb in places you otherwise wouldn't be able to.
 
 ---
 # Conquer clutter
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" /&gt;
 
 ---
 # Forks and branches
 
-<div id="htmlwidget-46d959a854643bac36e1" style="width:672px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-46d959a854643bac36e1">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-429d8e63516ccead76dc" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-429d8e63516ccead76dc">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 # Submodules
@@ -148,7 +151,7 @@ A final example is one where submodules can help unite the many different parts 
 
 It only really works on plaintext files.
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="672" /&gt;
 
 ---
 # Dynamic documents
@@ -182,7 +185,7 @@ Knuth, Donald E. (1983). _Literate programming_. [wiki](https://en.wikipedia.org
 ---
 # Project Jupyter
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="672" /&gt;
 
 ---
 # Knitr
@@ -194,7 +197,7 @@ Participants in condition A outperformed participants in condition B, `report_mo
 ---
 # Knitr
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="672" /&gt;
 
 ---
 # Dynamic documents in research and education
@@ -246,5 +249,23 @@ Pierce Edmiston
 <script>var slideshow = remark.create();
 if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
   </body>
 </html>
