@@ -24,6 +24,8 @@ Conclusion: It's worth it!
 library(knitr)
 opts_chunk$set(echo = FALSE, message = FALSE)
 source("presentation.R")
+osc_2015_science <- figs("osc_2015_science")
+munafo_etal_2017 <- figs("munafo_etal_2017_nature")
 ```
 
 ---
@@ -32,44 +34,77 @@ source("presentation.R")
 1. I want my research to be reproducible.
 2. I want to attract collaborators.
 
+???
+
+I want my research to be reproducible by other people and by myself. This means no undocumented steps! Document things in code for maximum reproducibility.
+
+I want the bar for getting involved in one of my projects to be as low as possible.
+
 ---
 # The reproducibility crisis
 
 <small>Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_.</small>
 
 ```{r reproducibility-crisis}
-img("refs/osc_2015_science/fig3.png", draw = TRUE)
+osc_2015_science("fig3", draw = TRUE)
 ```
+
+???
+
+My interest in reproducibility is really more of an obsession or a paranoia. I worry that my own research is not going to replicate.
 
 ---
 # Why isn't psychological research more reproducible?
 
-- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant. _Psychological Science_.
-- Gelman & Loken (2013). The garden of forking paths: Why multiple comparisons can be a problem, even when there is no “fishing expedition” or “p-hacking” and the research hypothesis was posited ahead of time. Unpublished manuscript.
-- Palmeri, K. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
-- Ioannidis, J. (2005). Why most published research findings are false. _PLOS Medicine_.
+- Simmons, Nelson, & Simonsohn. (2011). False-positive psychology. _Psychological Science_.
+- Gelman & Loken (2013). The garden of forking paths. Unpublished manuscript.
+- Palmeri (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis (2005). Why most published research findings are false. _PLOS Medicine_.
+- Edmiston (now). Publications are not answers to research questions. Unpublished thoughts.
+
+???
+
+The first reason is that there is a lot of flexibility in how we analyze behavioral data. The second reason is that we tend to look until we find something. But of course there are plenty of people who disagree whether the state of psychology research is as bad as some say. And actually these problems with publication bias and the file drawer effect are much more widespread than just psychology. Personally I think the culprit is the idea that publications are definitive answers to research questions.
 
 ---
-# Why open source is the answer
+# Reproducibility is a big problem
 
-Compare the following goals of reproducibility in science and in open source:
+<small>Munafò et al. (2017). A manifesto for reproducible science. _Nature_.</small>
 
-> My collaborators should be able to reproduce my research.  
+```{r}
+munafo_etal_2017("fig1", draw = TRUE)
+```
+
+---
+# Steps toward reproducible science
+
+- Blind data analysts to experiment conditions.
+- Improve statistics education (adapted for web).
+- Hire methodological consultants.
+- Seek collaboration for scalability.
+
+---
+# Why I think open source is the answer
+
+Compare these two goals of reproducibility in science and in open source:
+
+> Fellow researchers should be able to reproduce my work.  
 > Anyone should be able to use and contribute to this project.
-
----
-# Open source science
 
 ```{r open-source-science}
 DiagrammeR::grViz("
 digraph {
-  rankdir = LR;
+  label = 'Open source science';
+  labelloc = t;
+  fontname = 'Helvetica-bold';
   node[shape = none, fontname = Helvetica];
-  confidence -> collaboration;
-  confidence[label = 'Confidence'];
-  collaboration[label = 'Collaboration'];
+  Reproducibility -> {Confidence, Collaboration};
 }", height = 200)
 ```
+
+???
+
+Open source is the answer because the goal of reproducibility in open source communities is actually a loftier goal than in the scientific community.
 
 ---
 # Version control
@@ -84,12 +119,13 @@ grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1
 - **git**
 - mercurial
 - subversion
+- gitless
 
 ---
 # Tools for climbing
 
 ```{r}
-img("climbing-tools", ".jpg", draw = TRUE)
+img("climbing-tools", ext = ".jpg", draw = TRUE)
 ```
 
 ???
@@ -119,7 +155,7 @@ digraph {
   m0 -> m1 -> m2 -> m3;
   t0 -> t1 -> t2[style = invis];
 
-  m1 -> t2[constraint = false];
+  m1 -> t2 -> m3[constraint = false];
   m2 -> b3[constraint = false];
 
   b0, b1, b2, t0, t1[style = invis];
@@ -129,87 +165,93 @@ digraph {
 ---
 # Submodules
 
-    parent_repo/
-    ├── child_repo_1  # submodule 1
-    └── child_repo_2  # submodule 2
+.pull-left[
+```
+# key
+parent_repo/
+├── child_repo_1  # submodule 1
+└── child_repo_2  # submodule 2
 
----
-# Submodules
+# example 1
+talk or publication/
+├── research_project_1
+└── research_project_2
+```
+]
 
-    talk or publication/
-    ├── research_project_1
-    └── research_project_2
+.pull-right[
+```
+# example 2
+meta-analysis/
+├── research_project_1
+├── ...
+└── research_project_n
 
-???
-
-For example, say I'm going to give a talk or write a publication that uses results from one or more ongoing research projects. With submodules I can separate the stuff that's specific to this particular talk or publication from the stuff that's relevant the the ongoing research project. For example, my stats and figures need to conform to particular standards. With submodules I can do this while leaving the underlying research project unchanged.
-
----
-# Submodules
-
-    meta-analysis/
-    ├── research_project_1
-    ├── ...
-    └── research_project_n
-
-???
-
-Another example, one that I don't think anyone is doing, is to think about meta-analyses conducted with many research projects included as submodules. This keeps the meta-analyses linked to the research projects so that they can be updated as needed, and also allows for meta-analysis across the raw data--something that is almost impossible to do.
-
----
-# Submodules
-
-    project/
-    ├── *web-app*  -> also installed on web server
-    ├── *psychopy* -> also installed on lab computers
-    ├── *r-pkg*    -> installed by anyone who wants the data
-    ├── conference
-    └── journal
-
-???
-
-A final example is one where submodules can help unite the many different parts of a research project. This is an example from my own research. We did a large scale online experiment where people played a version of the children's game of telephone online. This project had a number of parts to it, including the source code for building the web app, and some additional experiments that we ran not online but in our research lab. Finally, I like to make it so that people can install the data from my published work as an R package, so that's included as a submodule as well so that people can get the data without also getting the webserver. With submodules I can keep all of this linked, so that I can submit to a conference with a particular version of the web-app and some data and analyses included.
+# example 3
+big-project/
+├── *web-app*  -> also installed on web server
+├── *lab-exp*  -> also installed on lab computers
+├── *r-pkg*    -> installed by anyone who wants the data
+├── conference
+└── journal
+```
 
 ---
 # Version control's dirty little secret
 
-It only really works on plaintext files.
+(It only really works on plaintext files.)
 
-```{r}
+```{r, fig.cap="Excel panic. Well, did you make changes or didn't you??"}
 img("excel-panic", draw = TRUE)
 ```
 
 ---
-# Dynamic documents
+# The good news
 
-- Origins: DRY, Literate Programming
-- Examples: Sphinx, Jupyter, Knitr
+Once you're working in plaintext, you can do lots of cool things.
+
+- Full power of VCS (merge, blame, etc).
+- Use free and open source tools (Unix).
+- Write dynamic documents.
 
 ---
-# Don't Repeat Yourself (DRY)
+# Dynamic documents
+
+- Philosophy: DRY, Literate Programming
+- Tools: Sphinx, Jupyter, Knitr, Pandoc
+
+---
+# Philosophy
+
+.pull-left[
+## Don't Repeat Yourself (DRY)
 
 > Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.
 
-- Hunt & Thomas, 1999, _The pragmatic programmer_. [wiki](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer).
+Hunt & Thomas. (1999). _The pragmatic programmer_.
+]
 
----
-# Literate programming (LP)
-
-Knuth, Donald E. (1983). _Literate programming_. [wiki](https://en.wikipedia.org/wiki/Literate_programming).
+.pull-right[
+## Literate programming (LP)
 
 * Intermingle prose and code for better understanding of the program.
 * The explanation of a program does not need to resemble the program structure.
 
+Knuth, Donald E. (1983). _Literate programming_.
+]
+
 ---
 # Sphinx
 
-## Python Documentation Generation
+**Python documentation generation**
 
 * Python standard library: [json](https://docs.python.org/3/library/json.html)
 * Third party packages: [requests](http://docs.python-requests.org/en/master/api/#requests.request)
 
 ---
 # Project Jupyter
+
+**Web-based, language-agnostic lab notebook.**
 
 ```{r}
 img("jupyter-preview", draw = TRUE)
@@ -218,54 +260,90 @@ img("jupyter-preview", draw = TRUE)
 ---
 # Knitr
 
-## Elegant, flexible and fast dynamic report generation with R
+**Elegant, flexible and fast dynamic report generation with R.**
 
-Participants in condition A outperformed participants in condition B, `report_model_results(mod, param = "condition")`.
-
----
-# Knitr
+    Participants in condition A outperformed participants in
+    condition B, `report_model_results(mod, param = "condition")`.
 
 ```{r}
 grid.arrange(img("knitr-source"), img("knitr-output"), nrow = 1)
 ```
 
 ---
-# Dynamic documents in research and education
+# Dynamic documents in practice
 
-- Handouts for meetings
-- Statistics homework
+- Handouts
+- Homework
 - Supplemental materials
 - Conference proceedings
-- Entire manuscripts
+- Journal papers
 
 ---
-# Building from source
+# A litmus test for reproducible research.
 
-**What does it mean to be able to reproduce someone's published research?**  
-To be able to build the published paper without the original data.
+Can you build the published paper without the original data?
 
 ---
-# Virtual environments
+# Identical environments
+
+.pull-left[
+## Open source tools
+
+- python
+- R (S)
+- octave (Matlab)
+
+## Virtual environments
 
 - Enthought
 - Anaconda
+]
 
----
-# Cloud computing
+.pull-right[
+## Cloud computing
 
 - Amazon Web Services
 - Open Stack
 
----
-# Examples
+## Infrastructure-as-code
 
-## Kaggle data
+- ansible
+- terraform
+]
+
+---
+# Examples of "Building from source"
+
+1. Kaggle leaderboards
+2. Totems game
 
 ---
 # Does it work?
 
+<small>McKiernan, _et al._ (2016). How open science helps researchers succeed. _eLife_.</small>
+
+```{r}
+figs("mckiernan_etal_2016_elife")("fig1", draw = TRUE)
+```
+
 ---
 # Cultural ratchets
+
+.pull-left[
+## Many species have elements of culture
+
+- chimps
+- whales
+- crows
+]
+
+.pull-right[
+## Only humans exhibit **cumulative** culture
+
+- ratchet effect
+- evolutionary process
+- transmission fidelity
+]
 
 ---
 # Adoption open source practices for better science
@@ -274,3 +352,9 @@ Pierce Edmiston
 <pedmiston@wisc.edu>  
 [sapir.psych.wisc.edu](http://sapir.psych.wisc.edu)  
 [github.com/pedmiston](https://github.com/pedmiston)
+
+Open source practices that make for more reproducible science:
+
+1. Version control
+2. Dynamic documents
+3. Building from source

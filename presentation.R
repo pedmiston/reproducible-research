@@ -3,7 +3,14 @@ library(tidyverse)
 library(grid)
 library(gridExtra)
 
-img <- function(stem, ext = ".png", draw = FALSE) {
+figs <- function(key) {
+  fig_dir <- file.path("img", key)
+  return(function(stem, ...) {
+    img(stem, img_dir = fig_dir, ...)
+  })
+}
+
+img <- function(stem, img_dir = "img", ext = ".png", draw = FALSE) {
   if (ext == ".png") {
     image_reader <- png::readPNG
   } else if (ext == ".jpg") {
@@ -15,7 +22,7 @@ img <- function(stem, ext = ".png", draw = FALSE) {
   if (file.exists(stem)) {
     img_path <- stem
   } else {
-    img_path <- file.path("img", paste0(stem, ext))
+    img_path <- file.path(img_dir, paste0(stem, ext))
   }
   
   grob <- image_reader(img_path) %>%
@@ -28,4 +35,3 @@ img <- function(stem, ext = ".png", draw = FALSE) {
     return(grob)
   }
 }
-
