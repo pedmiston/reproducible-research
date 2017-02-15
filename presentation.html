@@ -14,7 +14,7 @@
     <textarea id="source">
 class: center, middle, inverse
 
-# Adopting open source practices for better science
+# Adopting open source practices<br/>for better science
 ### <p>Pierce Edmiston<br />
 <a href="mailto:pedmiston@wisc.edu">pedmiston@wisc.edu</a><br />
 <a href="http://sapir.psych.wisc.edu">sapir.psych.wisc.edu</a><br />
@@ -59,13 +59,13 @@ I want the bar for getting involved in one of my projects to be as low as possib
 My interest in reproducibility is really more of an obsession or a paranoia. I worry that my own research is not going to replicate.
 
 ---
-# Why isn't psychological research more reproducible?
+### Why isn't psychological research more reproducible?
 
 - Simmons, Nelson, &amp; Simonsohn. (2011). False-positive psychology. _Psychological Science_.
-- Gelman &amp; Loken (2013). The garden of forking paths. Unpublished manuscript.
-- Palmeri (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
-- Ioannidis (2005). Why most published research findings are false. _PLOS Medicine_.
-- Edmiston (now). Publications are not answers to research questions. Unpublished thoughts.
+- Gelman &amp; Loken. (2013). The garden of forking paths. Unpublished manuscript.
+- Palmeri. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis. (2005). Why most published research findings are false. _PLOS Medicine_.
+- Edmiston. (now). Publications are not answers to research questions. Unpublished thoughts.
 
 ???
 
@@ -76,7 +76,7 @@ The first reason is that there is a lot of flexibility in how we analyze behavio
 
 &lt;small&gt;Munafò et al. (2017). A manifesto for reproducible science. _Nature_.&lt;/small&gt;
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/threats-to-reproducibility-1.png" width="672" /&gt;
 
 ---
 # Steps toward reproducible science
@@ -91,20 +91,23 @@ The first reason is that there is a lot of flexibility in how we analyze behavio
 
 Compare these two goals of reproducibility in science and in open source:
 
-&gt; Fellow researchers should be able to reproduce my work.  
-&gt; Anyone should be able to use and contribute to this project.
+1. Fellow researchers should be able to reproduce my work.  
+2. Anyone should be able to use and contribute to this project.
 
-<div id="htmlwidget-20e383c0ec3db0a3a114" style="width:672px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-20e383c0ec3db0a3a114">{"x":{"diagram":"\ndigraph {\n  label = \"Open source science\";\n  labelloc = t;\n  fontname = \"Helvetica-bold\";\n  node[shape = none, fontname = Helvetica];\n  Reproducibility -> {Confidence, Collaboration};\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f61fb122792d2df61da2" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f61fb122792d2df61da2">{"x":{"diagram":"\ndigraph {\n  label = \"Open source science\";\n  labelloc = t;\n  fontname = \"Helvetica-bold\";\n  node[shape = none, fontname = Helvetica];\n  Reproducibility -> {Confidence, Collaboration};\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ???
 
 Open source is the answer because the goal of reproducibility in open source communities is actually a loftier goal than in the scientific community.
 
 ---
+class: center
+
 # Version control
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="1152" /&gt;
+
+&lt;img src="presentation_files/figure-html/version-control-in-the-wild-1.png" width="1152" /&gt;
 
 ---
 # Pick your poison
@@ -115,24 +118,30 @@ Open source is the answer because the goal of reproducibility in open source com
 - gitless
 
 ---
+class: center
+
 # Tools for climbing
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/climbing-tools-1.png" width="672" /&gt;
 
 ???
 
 There are a number of ways to think about version control. One way is to think about it as a safety net, that no matter what you do, you can always roll back to what it was before. This is the power of the "undo" button. However, this doesn't really get at why I think version control is such a powerful tool. A better analogy is to think about version control as a tool for climbing. The picture is of tools used by rock climbers called "nuts" that you jam into a crack in the rock, and then you can use it as a hold. This is how I think about version control. It definitely has the effect of keeping you safer, but it also allows you to climb in places you otherwise wouldn't be able to.
 
 ---
+class: center
+
 # Conquer clutter
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/cluttered-folder-1.png" width="672" /&gt;
 
 ---
+class: center
+
 # Forks and branches
 
-<div id="htmlwidget-e32ed0775c3515572206" style="width:672px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e32ed0775c3515572206">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2 -> m3[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b726cd6f19709e90cb0f" style="width:672px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b726cd6f19709e90cb0f">{"x":{"diagram":"\ndigraph {\n  rankdir = LR;\n  bgcolor = transparent;\n  node[label = \"\"; style = \"filled\"; fillcolor = \"#8DA0CB\"];\n\n  t2;\n\n  b0 -> b1 -> b2 -> b3[style = invis];\n  m0 -> m1 -> m2 -> m3;\n  t0 -> t1 -> t2[style = invis];\n\n  m1 -> t2 -> m3[constraint = false];\n  m2 -> b3[constraint = false];\n\n  b0, b1, b2, t0, t1[style = invis];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 # Submodules
@@ -167,6 +176,7 @@ big-project/
 ├── conference
 └── journal
 ```
+]
 
 ---
 # Version control's dirty little secret
@@ -174,7 +184,7 @@ big-project/
 (It only really works on plaintext files.)
 
 &lt;div class="figure"&gt;
-&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" alt="Excel panic. Well, did you make changes or didn't you??" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/excel-panic-1.png" alt="Excel panic. Well, did you make changes or didn't you??" width="672" /&gt;
 &lt;p class="caption"&gt;Excel panic. Well, did you make changes or didn't you??&lt;/p&gt;
 &lt;/div&gt;
 
@@ -185,7 +195,7 @@ Once you're working in plaintext, you can do lots of cool things.
 
 - Full power of VCS (merge, blame, etc).
 - Use free and open source tools (Unix).
-- Write dynamic documents.
+- **Write dynamic documents.**
 
 ---
 # Dynamic documents
@@ -226,7 +236,7 @@ Knuth, Donald E. (1983). _Literate programming_.
 
 **Web-based, language-agnostic lab notebook.**
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/jupyter-preview-1.png" width="672" /&gt;
 
 ---
 # Knitr
@@ -236,7 +246,7 @@ Knuth, Donald E. (1983). _Literate programming_.
     Participants in condition A outperformed participants in
     condition B, `report_model_results(mod, param = "condition")`.
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/knitr-side-by-side-1.png" width="672" /&gt;
 
 ---
 # Dynamic documents in practice
@@ -248,9 +258,15 @@ Knuth, Donald E. (1983). _Literate programming_.
 - Journal papers
 
 ---
-# A litmus test for reproducible research.
+# A litmus test for reproducible research
 
 Can you build the published paper without the original data?
+
+### Building from source
+
+- Open source tools
+- No undocumented steps
+- Centralized control
 
 ---
 # Identical environments
@@ -260,7 +276,7 @@ Can you build the published paper without the original data?
 
 - python
 - R (S)
-- octave (Matlab)
+- Octave (Matlab)
 
 ## Virtual environments
 
@@ -291,7 +307,7 @@ Can you build the published paper without the original data?
 
 &lt;small&gt;McKiernan, _et al._ (2016). How open science helps researchers succeed. _eLife_.&lt;/small&gt;
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="672" /&gt;
+&lt;img src="presentation_files/figure-html/open-access-citations-1.png" width="672" /&gt;
 
 ---
 # Cultural ratchets
@@ -299,32 +315,33 @@ Can you build the published paper without the original data?
 .pull-left[
 ## Many species have elements of culture
 
-- chimps
-- whales
-- crows
+- chimps (Whiten et al., 1999)
+- whales (Garland et al., 2011)
+- crows (Hunt &amp; Gray, 2003)
 ]
 
 .pull-right[
 ## Only humans exhibit **cumulative** culture
 
-- ratchet effect
-- evolutionary process
-- transmission fidelity
+- ratchet effect (Tomasello et al., 1993)
+- evolutionary process (Basalla, 1988)
+- transmission fidelity (Lewis &amp; Laland, 2012)
 ]
 
 ---
 # Adoption open source practices for better science
 
-Pierce Edmiston  
-&lt;pedmiston@wisc.edu&gt;  
-[sapir.psych.wisc.edu](http://sapir.psych.wisc.edu)  
-[github.com/pedmiston](https://github.com/pedmiston)
+Pierce Edmiston (&lt;pedmiston@wisc.edu&gt;)  
+[github.com/pedmiston/reproducible-research](https://github.com/pedmiston/reproducible-research)  
+[bit.ly/reproducible-research-refs](http://bit.ly/reproducible-research-refs)
 
 Open source practices that make for more reproducible science:
 
 1. Version control
 2. Dynamic documents
 3. Building from source
+
+Conclusion: It's worth it!
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create();

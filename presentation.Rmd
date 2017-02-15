@@ -1,5 +1,5 @@
 ---
-title: Adopting open source practices for better science
+title: Adopting open source practices<br/>for better science
 author: |
   Pierce Edmiston  
   <pedmiston@wisc.edu>  
@@ -24,8 +24,6 @@ Conclusion: It's worth it!
 library(knitr)
 opts_chunk$set(echo = FALSE, message = FALSE)
 source("presentation.R")
-osc_2015_science <- figs("osc_2015_science")
-munafo_etal_2017 <- figs("munafo_etal_2017_nature")
 ```
 
 ---
@@ -46,7 +44,7 @@ I want the bar for getting involved in one of my projects to be as low as possib
 <small>Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. _Science_.</small>
 
 ```{r reproducibility-crisis}
-osc_2015_science("fig3", draw = TRUE)
+figs("osc_2015_science")("fig3", draw = TRUE)
 ```
 
 ???
@@ -54,13 +52,13 @@ osc_2015_science("fig3", draw = TRUE)
 My interest in reproducibility is really more of an obsession or a paranoia. I worry that my own research is not going to replicate.
 
 ---
-# Why isn't psychological research more reproducible?
+### Why isn't psychological research more reproducible?
 
 - Simmons, Nelson, & Simonsohn. (2011). False-positive psychology. _Psychological Science_.
-- Gelman & Loken (2013). The garden of forking paths. Unpublished manuscript.
-- Palmeri (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
-- Ioannidis (2005). Why most published research findings are false. _PLOS Medicine_.
-- Edmiston (now). Publications are not answers to research questions. Unpublished thoughts.
+- Gelman & Loken. (2013). The garden of forking paths. Unpublished manuscript.
+- Palmeri. (2016). Psychology is in crisis over whether it's in crisis. _WIRED_.
+- Ioannidis. (2005). Why most published research findings are false. _PLOS Medicine_.
+- Edmiston. (now). Publications are not answers to research questions. Unpublished thoughts.
 
 ???
 
@@ -71,8 +69,8 @@ The first reason is that there is a lot of flexibility in how we analyze behavio
 
 <small>Munafò et al. (2017). A manifesto for reproducible science. _Nature_.</small>
 
-```{r}
-munafo_etal_2017("fig1", draw = TRUE)
+```{r threats-to-reproducibility}
+figs("munafo_etal_2017_nature")("fig1", draw = TRUE)
 ```
 
 ---
@@ -88,8 +86,8 @@ munafo_etal_2017("fig1", draw = TRUE)
 
 Compare these two goals of reproducibility in science and in open source:
 
-> Fellow researchers should be able to reproduce my work.  
-> Anyone should be able to use and contribute to this project.
+1. Fellow researchers should be able to reproduce my work.  
+2. Anyone should be able to use and contribute to this project.
 
 ```{r open-source-science}
 DiagrammeR::grViz("
@@ -107,9 +105,12 @@ digraph {
 Open source is the answer because the goal of reproducibility in open source communities is actually a loftier goal than in the scientific community.
 
 ---
+class: center
+
 # Version control
 
-```{r, fig.width=12}
+
+```{r version-control-in-the-wild, fig.width=12}
 grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1)
 ```
 
@@ -122,9 +123,11 @@ grid.arrange(img("undo-button"), img("wiki-revisions"), img("git-log"), nrow = 1
 - gitless
 
 ---
+class: center
+
 # Tools for climbing
 
-```{r}
+```{r climbing-tools}
 img("climbing-tools", ext = ".jpg", draw = TRUE)
 ```
 
@@ -133,16 +136,20 @@ img("climbing-tools", ext = ".jpg", draw = TRUE)
 There are a number of ways to think about version control. One way is to think about it as a safety net, that no matter what you do, you can always roll back to what it was before. This is the power of the "undo" button. However, this doesn't really get at why I think version control is such a powerful tool. A better analogy is to think about version control as a tool for climbing. The picture is of tools used by rock climbers called "nuts" that you jam into a crack in the rock, and then you can use it as a hold. This is how I think about version control. It definitely has the effect of keeping you safer, but it also allows you to climb in places you otherwise wouldn't be able to.
 
 ---
+class: center
+
 # Conquer clutter
 
-```{r}
+```{r cluttered-folder}
 img("cluttered-folder", draw = TRUE)
 ```
 
 ---
+class: center
+
 # Forks and branches
 
-```{r}
+```{r git-tree}
 DiagrammeR::grViz("
 digraph {
   rankdir = LR;
@@ -195,13 +202,14 @@ big-project/
 ├── conference
 └── journal
 ```
+]
 
 ---
 # Version control's dirty little secret
 
 (It only really works on plaintext files.)
 
-```{r, fig.cap="Excel panic. Well, did you make changes or didn't you??"}
+```{r excel-panic, fig.cap="Excel panic. Well, did you make changes or didn't you??"}
 img("excel-panic", draw = TRUE)
 ```
 
@@ -212,7 +220,7 @@ Once you're working in plaintext, you can do lots of cool things.
 
 - Full power of VCS (merge, blame, etc).
 - Use free and open source tools (Unix).
-- Write dynamic documents.
+- **Write dynamic documents.**
 
 ---
 # Dynamic documents
@@ -253,7 +261,7 @@ Knuth, Donald E. (1983). _Literate programming_.
 
 **Web-based, language-agnostic lab notebook.**
 
-```{r}
+```{r jupyter-preview}
 img("jupyter-preview", draw = TRUE)
 ```
 
@@ -265,7 +273,7 @@ img("jupyter-preview", draw = TRUE)
     Participants in condition A outperformed participants in
     condition B, `report_model_results(mod, param = "condition")`.
 
-```{r}
+```{r knitr-side-by-side}
 grid.arrange(img("knitr-source"), img("knitr-output"), nrow = 1)
 ```
 
@@ -279,9 +287,15 @@ grid.arrange(img("knitr-source"), img("knitr-output"), nrow = 1)
 - Journal papers
 
 ---
-# A litmus test for reproducible research.
+# A litmus test for reproducible research
 
 Can you build the published paper without the original data?
+
+### Building from source
+
+- Open source tools
+- No undocumented steps
+- Centralized control
 
 ---
 # Identical environments
@@ -291,7 +305,7 @@ Can you build the published paper without the original data?
 
 - python
 - R (S)
-- octave (Matlab)
+- Octave (Matlab)
 
 ## Virtual environments
 
@@ -322,7 +336,7 @@ Can you build the published paper without the original data?
 
 <small>McKiernan, _et al._ (2016). How open science helps researchers succeed. _eLife_.</small>
 
-```{r}
+```{r open-access-citations}
 figs("mckiernan_etal_2016_elife")("fig1", draw = TRUE)
 ```
 
@@ -332,29 +346,30 @@ figs("mckiernan_etal_2016_elife")("fig1", draw = TRUE)
 .pull-left[
 ## Many species have elements of culture
 
-- chimps
-- whales
-- crows
+- chimps (Whiten et al., 1999)
+- whales (Garland et al., 2011)
+- crows (Hunt & Gray, 2003)
 ]
 
 .pull-right[
 ## Only humans exhibit **cumulative** culture
 
-- ratchet effect
-- evolutionary process
-- transmission fidelity
+- ratchet effect (Tomasello et al., 1993)
+- evolutionary process (Basalla, 1988)
+- transmission fidelity (Lewis & Laland, 2012)
 ]
 
 ---
 # Adoption open source practices for better science
 
-Pierce Edmiston  
-<pedmiston@wisc.edu>  
-[sapir.psych.wisc.edu](http://sapir.psych.wisc.edu)  
-[github.com/pedmiston](https://github.com/pedmiston)
+Pierce Edmiston (<pedmiston@wisc.edu>)  
+[github.com/pedmiston/reproducible-research](https://github.com/pedmiston/reproducible-research)  
+[bit.ly/reproducible-research-refs](http://bit.ly/reproducible-research-refs)
 
 Open source practices that make for more reproducible science:
 
 1. Version control
 2. Dynamic documents
 3. Building from source
+
+Conclusion: It's worth it!
